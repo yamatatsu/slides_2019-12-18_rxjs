@@ -4,149 +4,133 @@ import {
   Step,
 } from "code-surfer";
 import { github, vsDark } from "@code-surfer/themes";
+import Demo from './src'
 
 export const theme = vsDark;
 
-# Hello 👋
+<Head>
+  <title>rxjs instead of redux</title>
+</Head>
 
-You are using [MDX Deck](https://github.com/jxnblk/mdx-deck) and [Code Surfer](https://codesurfer.pomb.us)
+# rxjs instead of redux
+
+やまたつ
+
+つくばexpress.js #1
+
+---
+
+やまたつ
+
+- CureApp
+- 品質保証部 兼 エンジニア
+- typescript, aws
+
+---
+
+今日話すこと
+
+- rxjs とは
+- rxjsでreduxしてみる
+- 思いの丈
+
+---
+
+# rxjs とは
+
+---
+
+### rxjsでreduxみたいなことしてみるデモ
+
+<Demo />
 
 ---
 
 <CodeSurfer>
 
-```js title="This is a title" subtitle="and this a subtitle"
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null ? 0 : ipsum.sit;
-  dolor = sit - amet(dolor);
-  return sit
-    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
-    : [];
-}
-
-function incididunt(ipsum, ut = 1) {
-  ut = labore.et(amet(ut), 0);
-  const sit = ipsum == null ? 0 : ipsum.sit;
-
-  if (!sit || ut < 1) {
-    return [];
-  }
-
-  let dolore = 0;
-  let magna = 0;
-  const aliqua = new eiusmod(labore.ut(sit / ut));
-
-  while (dolore < sit) {
-    aliqua[magna++] = consectetur(
-      ipsum,
-      dolore,
-      (dolore += ut)
-    );
-  }
-
-  return aliqua;
-}
+```js file=./src/index.jsx title="redux風なrxjs" subtitle="50行足らず"
 ```
 
-```js
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null ? 0 : ipsum.sit;
-  dolor = sit - amet(dolor);
-  return sit
-    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
-    : [];
-}
-
-function adipiscing(...elit) {
-  if (!elit.sit) {
-    return [];
-  }
-
-  const sed = elit[0];
-  return eiusmod.tempor(sed) ? sed : [sed];
-}
-
-function incididunt(ipsum, ut = 1) {
-  ut = labore.et(amet(ut), 0);
-  const sit = ipsum == null ? 0 : ipsum.sit;
-
-  if (!sit || ut < 1) {
-    return [];
-  }
-
-  let dolore = 0;
-  let magna = 0;
-  const aliqua = new eiusmod(labore.ut(sit / ut));
-
-  while (dolore < sit) {
-    aliqua[magna++] = consectetur(
-      ipsum,
-      dolore,
-      (dolore += ut)
-    );
-  }
-
-  return aliqua;
-}
+```diff 14:27 title="redux風なrxjs" subtitle="Reactはこんな感じ"
 ```
 
-```diff 1[10:14],2[15:19],3[22:27],10:12
+```diff 21:25 title="redux風なrxjs" subtitle="値表示したりcallback付けたり"
+```
 
+```diff 16:18 title="redux風なrxjs" subtitle="謎のhooksで値とcallback作ってる"
+```
+
+```diff 5:7 title="redux風なrxjs" subtitle="SubjectはActionとして使う"
+```
+
+```diff 5:7,16:17 title="redux風なrxjs" subtitle="useSubjectはActionを発火する関数を返す"
+```
+
+```diff 6[7:16],7[7:16],8:12 title="redux風なrxjs" subtitle="Actionが発火したらなんかする"
+```
+
+```diff 12[13:34] title="redux風なrxjs" subtitle="これ！Reducer！"
+```
+
+```diff 29:43 title="redux風なrxjs" subtitle="謎のhooksはまぁ何もしてないです"
 ```
 
 </CodeSurfer>
 
 ---
 
-<CodeSurferColumns themes={[vsDark, github]}>
+### Reducerってなに？
 
-<Step>
+`Array.prototype.reduce()` の第一引数のこと。
 
-```js
-const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
-```
-
-```js
-const minim = (ad, enim) => dolore.magna(ad / enim);
-```
-
-</Step>
-
-<Step>
-
-```js
-const lorem = (ipsum, dolor, sit) => {
-  const amet = dolor - ipsum;
-  return consectetur.adipiscing(
-    {
-      elit: sed.eiusmod(sit - dolor) / amet + 2,
-    },
-    (tempor, incididunt) => ipsum + amet * incididunt
-  );
-};
-
-const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
-```
-
-```js
-const minim = (ad, enim) => dolore.magna(ad / enim);
-
-const sed = (eiusmod, tempor, incididunt) => {
-  const ut = tempor - eiusmod;
-  return labore.et(
-    {
-      amet: dolore.magna(incididunt - tempor) / ut + 2,
-    },
-    (aliqua, elit) => eiusmod + ut * elit
-  );
-};
-```
-
-</Step>
-
-</CodeSurferColumns>
+[MDNのArray.prototype.reduce()にも書いてある](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
 
 ---
 
-docs:  
-[codesurfer.pomb.us](https://codesurfer.pomb.us)
+```js
+(State, Action) => State'
+```
+
+---
+
+```js
+(acc, n) => acc + n
+```
+
+---
+
+# 完全に一致
+
+---
+
+# rxjsでreduxはできます。
+
+---
+
+# 何がしたかったの？
+
+---
+
+# イベント駆動
+
+---
+
+> イベント駆動は従来の「処理呼び出し」に比べて開放閉鎖原則の観点からとても優位。これは雑に言うとあとから処理を追加する際に既存コードに変更を与えないということ。rxjsがやりたかったわけではなくてこのイベント駆動がやりたかった。
+
+---
+
+> reduxはイベント駆動的であるが、middlewareでみるとイベント駆動的かつ型に強いものは限られる。redux-observable。どうせrxjsつかうならreduxいらんくない？rxって状態管理できるのでは？さらに観測可能箇所(Observable)が増えるほどに処理注入余地増えるのでは？フロントエンドファーストでバックエンドに対してデータ同期がしたかったのでこの特性は魅力的に見えた。
+
+---
+
+> でも正直rxにわか過ぎてrx辛い。ほんとに扱いきれるのかわからん。redux使わないべきなのか否かわからん。誰か教えて欲しい。壁打ちさせて欲しい。助けて欲しい。
+
+---
+
+# どなたかrxjs屋はおりませんか！？
+
+---
+
+# ご清聴ありがとうございました :bow:
+
+---

@@ -1,4 +1,5 @@
 {
+  "name": "slides_2019-12-18_rxjs",
   "private": true,
   "version": "1.0.0",
   "scripts": {
@@ -7,8 +8,11 @@
     "test": "echo \"there are no tests\""
   },
   "devDependencies": {
-    "code-surfer": "3.0.0",
-    "mdx-deck": "3.0.13"
+    "code-surfer": "3.x.x",
+    "mdx-deck": "3.x.x"
   },
-  "name": "slides_2019-12-18_rxjs"
+  "dependencies": {
+    "react-mermaid": "^0.1.3",
+    "rxjs": "^6.5.3"
+  }
 }
