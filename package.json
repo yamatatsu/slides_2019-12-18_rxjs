@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "mdx-deck deck.mdx",
-    "build": "mdx-deck build deck.mdx",
+    "build": "rm -rf docs && mdx-deck build deck.mdx && mv public docs",
     "test": "echo \"there are no tests\""
   },
   "devDependencies": {
