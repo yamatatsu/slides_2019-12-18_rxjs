@@ -4,7 +4,8 @@ import {
   Step,
 } from "code-surfer";
 import { github, vsDark } from "@code-surfer/themes";
-import Demo from './src'
+import Demo from './src/Demo.jsx'
+import Playground from './src/Playground.jsx'
 
 export const theme = vsDark;
 
@@ -40,6 +41,10 @@ export const theme = vsDark;
 
 ---
 
+<Playground />
+
+---
+
 ### rxjsでreduxみたいなことしてみるデモ
 
 <Demo />
@@ -48,7 +53,7 @@ export const theme = vsDark;
 
 <CodeSurfer>
 
-```js file=./src/index.jsx title="redux風なrxjs" subtitle="50行足らず"
+```js file=./src/Demo.jsx title="redux風なrxjs" subtitle="50行足らず"
 ```
 
 ```diff 14:27 title="redux風なrxjs" subtitle="Reactはこんな感じ"

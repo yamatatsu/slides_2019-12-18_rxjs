@@ -5999,6 +5999,11 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
+hoist-non-react-statics@^1.0.3:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
+  integrity sha1-qkSM8JhtVcxAdzsXF0t90GbLfPs=
+
 hoist-non-react-statics@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.0.tgz#b09178f0122184fb95acf525daaecb4d8f45958b"
@@ -9542,6 +9547,13 @@ rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-async-script-loader@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-async-script-loader/-/react-async-script-loader-0.3.0.tgz#c742b3ca25e08ba61ab7eb64371f814027692b86"
+  integrity sha1-x0KzyiXgi6Yat+tkNx+BQCdpK4Y=
+  dependencies:
+    hoist-non-react-statics "^1.0.3"
+
 react-dev-utils@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.3.tgz#5b42d9ea58d5e9e017a2f57a40a8af408a3a46fb"
@@ -9636,6 +9648,11 @@ react-reconciler@^0.24.0:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.18.0"
+
+react-runkit@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/react-runkit/-/react-runkit-0.9.0.tgz#8a97aec60c2fcf9da17b0af2bb91a877e4336b05"
+  integrity sha1-ipeuxgwvz52hewryu5God+QzawU=
 
 react-side-effect@^1.1.0:
   version "1.2.0"
