@@ -10,7 +10,6 @@ const { map } = require('rxjs/operators');
 
 const subject = new Subject();
 subject.subscribe({next:n => console.log(\`[original]: \${n}\`)});
-subject.pipe(map(n => n + 1)).subscribe({next:n => console.log(\`[+1]: \${n}\`)});
 subject.pipe(map(n => n * 2)).subscribe({next:n => console.log(\`[*2]: \${n}\`)});
 
 subject.next(3)
