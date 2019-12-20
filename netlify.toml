@@ -1,0 +1,9 @@
+# example netlify.toml
+[build]
+  command = "yarn build"
+  functions = "functions"
+  publish = "public"
+[[redirects]]
+  from = "/:page"
+  to = "/index.html"
+  status = 200
